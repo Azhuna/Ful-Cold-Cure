@@ -1,1 +1,58 @@
 FluColdCure
+/* www.animate.css */
+
+#countdownContainer {
+    display: flex;
+
+}
+
+#countdownTimer {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#eventBtnContainer {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+#fruitContainer {
+    display: flex;
+    overflow-x: scroll;
+}
+
+#fruitcardsContainer {
+    width: fit-content;
+}
+
+#fruitCards {
+    height: 150px;
+    width: 100px;
+}
+
+#vegContainer {
+    display: flex;
+    overflow-x: scroll;
+}
+
+#vegcardsContainer {
+    width: fit-content;
+}
+
+#vegCards {
+    height: 150px;
+    width: 100px;
+}
+
+#recipesContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#recipeCards {
+    height: 250px;
+    width: 225px
+}
