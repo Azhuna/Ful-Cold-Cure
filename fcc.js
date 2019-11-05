@@ -1,4 +1,4 @@
-FluColdCure
+//FluColdCure
 
 // www.flipclockjs.com
 
