@@ -21,16 +21,38 @@ FluColdCure
 
 #fruitContainer {
     display: flex;
+    width: 100%;
     overflow-x: scroll;
+    justify-content: space-around;
 }
 
-#fruitcardsContainer {
+
+
+#fruitCardsContainer {
     width: fit-content;
+    display: flex;
+
 }
 
-#fruitCards {
+.fruitCards {
+    display: flex;
+    flex-direction: column;
     height: 150px;
     width: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.fruitImg {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+}
+
+.cardText {
+    text-align: center;
 }
 
 #vegContainer {
