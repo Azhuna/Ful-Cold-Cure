@@ -85,6 +85,27 @@ body {
     border-radius: 50%;
 }
 
+#vImg {
+    margin: 0.5em;
+    height: 10em;
+    width: 10em;
+}
+
+#vegDivContainer {
+    display: flex;
+    flex-direction: column;
+    width: 10em;
+    margin: 15px;
+    align-items: center;
+
+}
+
+h5 {
+    margin-top: 0;
+    text-align: center;
+    width: 100%;
+}
+
 #recipesContainer {
     display: flex;
     flex-wrap: wrap;
