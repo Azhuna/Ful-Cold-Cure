@@ -10,6 +10,7 @@ body {
     height: 500px;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 #countdownTimer {
@@ -22,22 +23,20 @@ body {
     display: flex;
     align-content: center;
     justify-content: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 #fruitContainer {
     display: flex;
     width: 100%;
-    overflow-x: scroll;
-    justify-content: space-around;
 }
 
 
 
 #fruitCardsContainer {
-    width: fit-content;
+    width: 100%;
     display: flex;
-
+    justify-content: space-around;
 }
 
 .fruitCards {
@@ -48,8 +47,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
-
 
 .fruitImg {
     height: 90px;
@@ -63,7 +60,7 @@ body {
 
 #vegContainer {
     display: flex;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
 
 }
 
@@ -96,4 +93,24 @@ body {
 #recipeCards {
     height: 250px;
     width: 225px
+}
+
+.fruitRecipeImg {
+    height: 10em;
+    width: 10em;
+    margin: 0.5em;
+}
+
+.fruitCardDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 10em;
+    margin: 15px;
+}
+
+h5 {
+    margin-top: 0;
+    text-align: center;
+    width: 100%;
 }
