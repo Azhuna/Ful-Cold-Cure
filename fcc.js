@@ -12,6 +12,30 @@
 //get the "idMeal" and store it in a variable to plug into the searchRootrec to get the recipe instructions
 // app key: 87a928925605deae71bd457e43c90d4f
 //app ID: 281b5eb1
+
+$("#local-time-container").html("Current time: " + moment().format("hh:mm:ss a"))
+
+// A current moment (curr)
+let current = moment()
+// A moment for March 31, 2020 (last)
+let fluSeason = moment([2020, 2, 31])
+
+// Calculate the difference between last and curr in Days
+
+let deltaDays = fluSeason.diff(current, 'days')
+
+if (deltaDays <= 0) {
+    deltaDays = 0;
+}
+
+
+var clock = $('.your-clock').FlipClock(3600 * 24 * deltaDays, {
+    clockFace: 'DailyCounter',
+    countdown: true,
+});
+
+
+
 $(".vegCards").on("click", function (event) {
     console.log(event)
     $("#recipesContainer").empty()
@@ -66,14 +90,27 @@ $(".fruitCards").on("click", function (event) {
     $.get(url, function (response) {
         let fruitRecipes = JSON.parse(response).recipes
         for (let index = 0; index < fruitRecipes.length; index++) {
-            let fruitCardDiv = $("<div>").addClass("fruitCardDiv")
+            let fruitCardDiv = $("<div>").addClass("fruitCardDiv").attr("recipe", fruitRecipes[index].source_url)
             let myFruitRecipe = $("<img>").attr({
                 src: fruitRecipes[index].image_url,
                 class: "fruitRecipeImg",
+                recipe: fruitRecipes[index].source_url
             })
-            let myFruitRecipeTitle = $("<h5>").html(fruitRecipes[index].title)
+            let myFruitRecipeTitle = $("<h5>").html(fruitRecipes[index].title).attr("recipe", fruitRecipes[index].source_url)
             fruitCardDiv.append(myFruitRecipe).append(myFruitRecipeTitle)
             $("#recipesContainer").prepend(fruitCardDiv)
         }
     })
+})
+
+$("#recipesContainer").on("click", function (event) {
+    let fruitRecipe = $(event.target)
+    let fruitWebsite = fruitRecipe.attr("recipe")
+
+    $.get(fruitWebsite, function (response) {
+        let modal = $("#myModal");
+        $("#recipeSite").html(response)
+        modal.css("display", "block")
+    })
+
 })
