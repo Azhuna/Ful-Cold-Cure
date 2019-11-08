@@ -3,6 +3,7 @@ FluColdCure
 
 body {
     height: 100%;
+
 }
 
 #countdownContainer {
@@ -11,12 +12,29 @@ body {
     flex-direction: column;
     justify-content: center;
     margin-bottom: 30px;
+
 }
 
 #countdownTimer {
     display: flex;
     align-content: center;
     justify-content: center;
+    color: gray;
+
+}
+
+#titleText {
+    text-align: center;
+    color: white;
+    text-shadow: -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    font-family: 'Shadows Into Light',
+        cursive;
+    font-size: 45px;
+    font-family: 'Shadows Into Light', cursive;
+    margin-top: 5px;
 }
 
 #eventBtnContainer {
@@ -87,8 +105,10 @@ body {
 
 #vImg {
     margin: 0.5em;
-    height: 10em;
-    width: 10em;
+    height: 9em;
+    width: 9em;
+    border-radius: 2%;
+
 }
 
 #vegDivContainer {
@@ -97,7 +117,8 @@ body {
     width: 10em;
     margin: 15px;
     align-items: center;
-
+    background-color: beige;
+    border-radius: 5%;
 }
 
 h5 {
@@ -110,6 +131,7 @@ h5 {
     display: flex;
     flex-wrap: wrap;
 }
+
 
 #recipeCards {
     height: 250px;
@@ -134,4 +156,64 @@ h5 {
     margin-top: 0;
     text-align: center;
     width: 100%;
+}
+
+
+
+#recipeSiteContainer {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+#recipeSite {
+    height: fit-content;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100vh;
+    /* Full height */
+
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }

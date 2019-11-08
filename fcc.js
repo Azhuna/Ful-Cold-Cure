@@ -12,6 +12,16 @@
 //get the "idMeal" and store it in a variable to plug into the searchRootrec to get the recipe instructions
 // app key: 87a928925605deae71bd457e43c90d4f
 //app ID: 281b5eb1
+
+//
+
+var clock = $('.your-clock').FlipClock({
+    // ... your options here
+    clockFace: 'DailyCounter',
+    countdown: true
+});
+
+
 $(".vegCards").on("click", function (event) {
     console.log(event)
     $("#recipesContainer").empty()
@@ -26,10 +36,15 @@ $(".vegCards").on("click", function (event) {
         for (let index = 0; index < vegArray.length; index++) {
             let vegImg = $("<img>").attr({
                 src: vegArray[index].recipe.image,
-                id: "vImg"
+                id: "vImg",
+                vegName: vegArray[index].recipe.url
             });
-            let vegText = $("<h5>").attr("id", "vText").html(vegArray[index].recipe.label)
-            let vegDiv = $("<div>").attr("id", "vegDivContainer")
+            let vegText = $("<h5>").attr("id", "vText").html(vegArray[index].recipe.label).attr("vegName", vegArray[index].recipe.url)
+            let vegDiv = $("<div>").attr({
+                id: "vegDivContainer",
+                vegName: vegArray[index].recipe.url
+
+            });
             vegDiv.append(vegImg)
             vegDiv.append(vegText)
 
@@ -76,4 +91,26 @@ $(".fruitCards").on("click", function (event) {
             $("#recipesContainer").prepend(fruitCardDiv)
         }
     })
+})
+//make an onclick event
+//find info in thats spacific to what was clicked on 
+//to use the info in a new get request that will give us a recipe that we can show on a modal 
+
+$("#recipesContainer").on("click", function (event) {
+    let vegRecipe = $(event.target)
+    let vegWebsite = vegRecipe.attr("vegName")
+
+    $.get(vegWebsite, function (response) {
+        let modal = $("#myModal");
+        $("#recipeSite").html(response)
+        modal.css("display", "block");
+    })
+
+
+
+})
+
+$(".close").on("click", function () {
+    let modal = $("#myModal");
+    modal.css("display", "none");
 })
