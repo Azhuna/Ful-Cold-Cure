@@ -50,10 +50,15 @@ $(".vegCards").on("click", function (event) {
         for (let index = 0; index < vegArray.length; index++) {
             let vegImg = $("<img>").attr({
                 src: vegArray[index].recipe.image,
-                id: "vImg"
+                id: "vImg",
+                vegName: vegArray[index].recipe.url
             });
-            let vegText = $("<h5>").attr("id", "vText").html(vegArray[index].recipe.label)
-            let vegDiv = $("<div>").attr("id", "vegDivContainer")
+            let vegText = $("<h5>").attr("id", "vText").html(vegArray[index].recipe.label).attr("vegName", vegArray[index].recipe.url)
+            let vegDiv = $("<div>").attr({
+                id: "vegDivContainer",
+                vegName: vegArray[index].recipe.url
+
+            });
             vegDiv.append(vegImg)
             vegDiv.append(vegText)
 
@@ -102,6 +107,25 @@ $(".fruitCards").on("click", function (event) {
         }
     })
 })
+//make an onclick event
+//find info in thats spacific to what was clicked on 
+//to use the info in a new get request that will give us a recipe that we can show on a modal 
+
+$("#recipesContainer").on("click", function (event) {
+    let vegRecipe = $(event.target)
+    let vegWebsite = vegRecipe.attr("vegName")
+
+    $.get(vegWebsite, function (response) {
+        let modal = $("#myModal");
+        $("#recipeSite").html(response)
+        modal.css("display", "block");
+    })
+
+
+
+})
+
+
 
 $("#recipesContainer").on("click", function (event) {
     let fruitRecipe = $(event.target)
@@ -113,4 +137,8 @@ $("#recipesContainer").on("click", function (event) {
         modal.css("display", "block")
     })
 
+})
+$(".close").on("click", function () {
+    let modal = $("#myModal");
+    modal.css("display", "none");
 })

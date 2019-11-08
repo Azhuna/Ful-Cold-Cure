@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cold Cure</title>
-    <!-- Flipclock CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="flipclock.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Custom Css -->
     <link rel="stylesheet" href="fcc.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -15,15 +17,22 @@
 </head>
 
 <body>
+
     <!-- Open Countdown Container  -->
     <div id="countdownContainer" style="background-image: url(https://images.pexels.com/photos/459469/pexels-photo-459469.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
-        width: 100%;">
+        width: 100%;
+        ">
         <!-- Open Countdown Timer -->
         <div id="countdownTimer" class="your-clock">
             <!-- Close Countdown Timer -->
+
         </div>
+        <div id="timerTitle">
+            <p id="titleText">...Until the end of Flu Season</p>
+        </div>
+
         <!-- Open Event Buttons -->
         <div id="eventBtnContainer">
             <button>Prevent A Cold</button>
@@ -139,8 +148,21 @@
 
     <!-- Open Recipes Container using modals -->
     <div id="recipesContainer">
-        <div id="recipeCards"></div>
-        <!-- Close Recipes Container -->
+
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="recipeSiteContainer">
+                <div id="recipeSite"></div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Close Recipes Container -->
     </div>
 
     <!-- About Container -->
@@ -148,12 +170,16 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <!-- Moment JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <!-- Flipclock JS -->
-    <script src="flipclock.min.js"></script>
-    <!--Custom Javascript  -->
-    <script src="fcc.js"></script>
+    <<<<<<< HEAD <!--Fip Clock Js-->
+        =======
+        <!-- Moment JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <!-- Flipclock JS -->
+        >>>>>>> master
+        <script src="flipclock.min.js"></script>
+        <!--Custom Javascript  -->
+        <script src="fcc.js"></script>
+
 </body>
 
 </html>
