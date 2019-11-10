@@ -35,8 +35,8 @@
 
         <!-- Open Event Buttons -->
         <div id="eventBtnContainer">
-            <button>Prevent A Cold</button>
-            <button>Cure A Cold</button>
+            <!-- <button>Prevent A Cold</button>
+            <button>Cure A Cold</button> -->
             <!-- Close Event Buttons -->
         </div>
         <!-- Close Countdown Container -->
@@ -49,8 +49,6 @@
 
         <div id="fruitCardsContainer">
             <!-- Fruit Cards -->
-
-
             <div class="fruitCards" selectedFruit="Mango"> <img class="fruitImg"
                     src="https://cdn.pixabay.com/photo/2018/06/20/01/34/mango-3485606_960_720.jpg" alt="Mango image">
                 <h4 class="cardText">Mango</h4>
@@ -98,46 +96,47 @@
             <div id="Broccoli" class="vegCards">
                 <img src="https://images.pexels.com/photos/47347/broccoli-vegetable-food-healthy-47347.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt="Broccoli Image" class="vegImg">
-                <h4>Broccoli</h4>
-            </div id="Carrot">
-            <div class="vegCards"><img
+                <h4 class="cardText">Broccoli</h4>
+            </div>
+
+            <div id="Carrot" class="vegCards"><img
                     src="https://images.pexels.com/photos/143133/pexels-photo-143133.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
                     alt="Carrot Image" class="vegImg">
-                <h4>Carrot</h4>
+                <h4 class="cardText">Carrot</h4>
             </div>
 
             <div id="Corn" class="vegCards"><img
                     src="https://images.pexels.com/photos/1353865/pexels-photo-1353865.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt="Corn Image" class="vegImg">
-                <h4>Corn</h4>
+                <h4 class="cardText">Corn</h4>
             </div>
             <div id="Greens" class="vegCards"><img
                     src="https://images.pexels.com/photos/1751149/pexels-photo-1751149.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt="Greens Image" class="vegImg">
-                <h4>Greens</h4>
+                <h4 class="cardText">Greens</h4>
             </div>
             <div id="SweetPotato" class="vegCards"><img
                     src="https://images.pexels.com/photos/89247/pexels-photo-89247.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt="Sweet Potato Image" class="vegImg">
-                <h4>Sweet Potato</h4>
+                <h4 class="cardText">Sweet Potato</h4>
             </div>
 
             <div id="Tomato" class="vegCards"><img
                     src="https://images.pexels.com/photos/48802/tomato-bunch-mature-red-48802.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt="Tomato Image" class="vegImg">
-                <h4>Tomato</h4>
+                <h4 class="cardText">Tomato</h4>
             </div>
 
             <div id="Asparagus" class="vegCards"><img
                     src="https://images.pexels.com/photos/351679/pexels-photo-351679.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt="Asparagus Image" class="vegImg">
-                <h4>Asparagus</h4>
+                <h4 class="cardText">Asparagus</h4>
             </div>
 
             <div id="Cabbage" class="vegCards"><img
                     src="https://images.pexels.com/photos/209482/pexels-photo-209482.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt="Cabbage Image" class="vegImg">
-                <h4>Cabbage</h4>
+                <h4 class="cardText">Cabbage</h4>
             </div>
 
             <!-- Close Veg Cards Container  -->
@@ -167,18 +166,39 @@
 
     <!-- About Container -->
     <div id="aboutUs"></div>
+
+
+
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <<<<<<< HEAD <!--Fip Clock Js-->
-        =======
-        <!-- Moment JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-        <!-- Flipclock JS -->
-        >>>>>>> master
-        <script src="flipclock.min.js"></script>
-        <!--Custom Javascript  -->
-        <script src="fcc.js"></script>
+    <!-- Moment JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- Flipclock JS -->
+    <script src="flipclock.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+    <!-- <!-- TODO: Add SDKs for Firebase products that you want to use  -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyB-xy44E1t702ZKxrI_DdxLQZzm3d9zsy4",
+            authDomain: "cold-cure.firebaseapp.com",
+            databaseURL: "https://cold-cure.firebaseio.com",
+            projectId: "cold-cure",
+            storageBucket: "cold-cure.appspot.com",
+            messagingSenderId: "806371486190",
+            appId: "1:806371486190:web:f4a869216149f1f064c6ff"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <!--Custom Javascript  -->
+    <script src="fcc.js"></script>
 
 </body>
 
