@@ -56,7 +56,8 @@ $(".vegCards").on("click", function (event) {
             let vegText = $("<h5>").attr("id", "vText").html(vegArray[index].recipe.label).attr("vegName", vegArray[index].recipe.url)
             let vegDiv = $("<div>").attr({
                 id: "vegDivContainer",
-                vegName: vegArray[index].recipe.url
+                vegName: vegArray[index].recipe.url,
+                class: "div"
 
             });
             vegDiv.append(vegImg)
@@ -95,7 +96,7 @@ $(".fruitCards").on("click", function (event) {
     $.get(url, function (response) {
         let fruitRecipes = JSON.parse(response).recipes
         for (let index = 0; index < fruitRecipes.length; index++) {
-            let fruitCardDiv = $("<div>").addClass("fruitCardDiv").attr("recipe", fruitRecipes[index].source_url)
+            let fruitCardDiv = $("<div>").addClass("fruitCardDiv div").attr("recipe", fruitRecipes[index].source_url)
             let myFruitRecipe = $("<img>").attr({
                 src: fruitRecipes[index].image_url,
                 class: "fruitRecipeImg",
