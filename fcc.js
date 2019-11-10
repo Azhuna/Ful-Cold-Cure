@@ -128,12 +128,7 @@ $(".vegCards").on("click", function (event) {
             let vegText = $("<h5>").attr("id", "vText").html(vegArray[index].recipe.label).attr("vegName", url)
             let vegDiv = $("<div>").attr({
                 id: "vegDivContainer",
-<<<<<<< HEAD
-                vegName: vegArray[index].recipe.url,
-                class: "div"
-=======
                 vegName: url
->>>>>>> master
 
             });
             vegDiv.append(vegImg)
