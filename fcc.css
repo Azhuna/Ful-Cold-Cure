@@ -37,11 +37,22 @@ body {
     margin-top: 5px;
 }
 
-#eventBtnContainer {
+#quoteContainer {
     display: flex;
     align-content: center;
-    justify-content: center;
-    justify-content: space-evenly;
+    justify-items: center;
+    justify-items: space-evenly;
+    overflow: scroll;
+    overflow: auto;
+
+}
+
+#foodQuotes {
+
+    border-radius: 5%;
+    background-color: blanchedalmond;
+    margin: 5px;
+    padding: 5px;
 }
 
 #fruitContainer {
@@ -118,8 +129,20 @@ body {
     width: 10em;
     margin: 15px;
     align-items: center;
-    background-color: beige;
+
     border-radius: 5%;
+}
+
+.div {
+    background-color: white;
+}
+
+.div:hover,
+.div:focus {
+
+    text-decoration: none;
+    cursor: pointer;
+    background-color: beige;
 }
 
 h5 {
@@ -142,8 +165,9 @@ h5 {
 }
 
 .fruitRecipeImg {
-    height: 10em;
-    width: 10em;
+    height: 9em;
+    width: 9em;
+    border-radius: 2%;
     margin: 0.5em;
 }
 
@@ -153,14 +177,28 @@ h5 {
     align-items: center;
     width: 10em;
     margin: 15px;
+    border-radius: 5%;
 }
 
 h5 {
     margin-top: 0;
     text-align: center;
     width: 100%;
+    font-family: 'Nixie One',
+        cursive;
 }
 
+.btnDiv {
+    font-size: small;
+}
+
+.btnDiv:hover,
+.btnDiv:focus {
+
+    text-decoration: none;
+    cursor: pointer;
+
+}
 
 
 #recipeSiteContainer {
