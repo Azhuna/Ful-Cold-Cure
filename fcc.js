@@ -53,37 +53,127 @@ $(".vegCards").on("click", function (event) {
                 id: "vImg",
                 vegName: vegArray[index].recipe.url
             });
-            let vegText = $("<h5>").attr("id", "vText").html(vegArray[index].recipe.label).attr("vegName", vegArray[index].recipe.url)
+
+            let ratings = $("<div>").attr({
+                class: "stars",
+                "data-rating": ""
+            })
+            let star1 = $("<span>").attr({
+                class: "star",
+                value: "0"
+            }).html("&nbsp;")
+
+            let star2 = $("<span>").attr({
+                class: "star",
+                value: "1"
+            }).html("&nbsp;")
+
+            let star3 = $("<span>").attr({
+                class: "star",
+                value: "2"
+            }).html("&nbsp;")
+
+            let star4 = $("<span>").attr({
+                class: "star",
+                value: "3"
+            }).html("&nbsp;")
+
+            let star5 = $("<span>").attr({
+                class: "star",
+                value: "4"
+            }).html("&nbsp;")
+
+            star1.append(star2).append(star3).append(star4).append(star5)
+
+            ratings.append(star1)
+
+            $(".star").on("click", function (event) {
+                //    saving the star class array in a variable 
+                let stars = $(".star")
+                // turning the value of the data-rating attribute into a number and saving it in a variable
+                let rating = parseInt($(".stars").attr("data-rating"));
+                // going in the stars array at index that is the same value as the variable rating minus 1 and saving that index place in a variable
+                let target = stars[rating - 1]
+                // dispatching event so that the function setRating is called
+                let vote = setRating(event)
+
+                console.log(vote)
+            })
+
+            function setRating(event) {
+                let clickedStar = parseInt($(event.target).attr("value"));
+                let stars = $(".star")
+                let num = 0;
+                console.log(stars)
+
+                for (let index = 0; index < stars.length; index++) {
+                    let star = $(stars[index]);
+                    if (index <= clickedStar) {
+                        star.addClass("rated")
+
+                    } else {
+                        star.removeClass("rated");
+                    }
+                    //is this the index of the star that was clicked?
+                    if (index === clickedStar) {
+                        num = index + 1;
+                    }
+                }
+
+                $(".stars").attr("data-rating", num);
+
+                return num;
+            };
+            let url = vegArray[index].recipe.url
+            let vegText = $("<h5>").attr("id", "vText").html(vegArray[index].recipe.label).attr("vegName", url)
             let vegDiv = $("<div>").attr({
                 id: "vegDivContainer",
+<<<<<<< HEAD
                 vegName: vegArray[index].recipe.url,
                 class: "div"
+=======
+                vegName: url
+>>>>>>> master
 
             });
             vegDiv.append(vegImg)
-            vegDiv.append(vegText)
+            vegDiv.append(vegText).append(ratings)
 
 
             // vegImg.append($("<h4>").attr("id", vegText).html (vegArray[index].recipe.label)
             $("#recipesContainer").append(vegDiv)
 
         }
+
+        let db = firebase.database()
+
+        // user rates recipe by clicking which adds the recipe url and the rating (num) to the database
+        db.ref(url).once("value", function (snap) {
+            let dbVal = snap.val()
+            if (dbVal === null) {
+                db.ref(url).set({
+                    rating: num,
+                    votes: 1
+                })
+            } else {
+                let currentRating = dbVal.rating
+                let currentVote = dbVal.votes
+                let newRating = (currentRating + num) / (currentVote++)
+                db.ref(url).update({
+                    rating: newRating,
+                    votes: currentVote++
+                })
+            }
+        })
+        $(".stars").attr("data-rating", newRating);
     })
+
+
+
 })
-//search for id
 
-
-//using id to search recipe
-// let searchRootRec = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i='
-
-// let mealId = $(idMeal)
-// console.log(mealId)
-// let vegInput = $("h4").html
-// let vegUrl = searchRoot `${vegInput}`
-// //get recipe id and add it to the searchRootRec
-// //form card with the recipe and photo
-// For fruit: 
-// fe5d8642240d507552f5552a84949dd5 6ce3d563f5ca6d40ab652519d95d032d&q
+// Api keys For fruit: 
+// fe5d8642240d507552f5552a84949dd5  or 6ce3d563f5ca6d40ab652519d95d032d&q
 $(".fruitCards").on("click", function (event) {
     $("#recipesContainer").empty()
     console.log(event.currentTarget)
@@ -102,9 +192,105 @@ $(".fruitCards").on("click", function (event) {
                 class: "fruitRecipeImg",
                 recipe: fruitRecipes[index].source_url
             })
+            let ratings = $("<div>").attr({
+                class: "stars",
+                "data-rating": ""
+            })
+            let star1 = $("<span>").attr({
+                class: "star",
+                value: "0"
+            }).html("&nbsp;")
+
+            let star2 = $("<span>").attr({
+                class: "star",
+                value: "1"
+            }).html("&nbsp;")
+
+            let star3 = $("<span>").attr({
+                class: "star",
+                value: "2"
+            }).html("&nbsp;")
+
+            let star4 = $("<span>").attr({
+                class: "star",
+                value: "3"
+            }).html("&nbsp;")
+
+            let star5 = $("<span>").attr({
+                class: "star",
+                value: "4"
+            }).html("&nbsp;")
+
+            star1.append(star2).append(star3).append(star4).append(star5)
+
+            ratings.append(star1)
+
+            $(".star").on("click", function (event) {
+                //    saving the star class array in a variable 
+                let stars = $(".star")
+                // turning the value of the data-rating attribute into a number and saving it in a variable
+                let rating = parseInt($(".stars").attr("data-rating"));
+                // going in the stars array at index that is the same value as the variable rating minus 1 and saving that index place in a variable
+                let target = stars[rating - 1]
+                // dispatching event so that the function setRating is called
+                let vote = setRating(event)
+
+                console.log(vote)
+            })
+
+            function setRating(event) {
+                let clickedStar = parseInt($(event.target).attr("value"));
+                let stars = $(".star")
+                let num = 0;
+                console.log(stars)
+
+                for (let index = 0; index < stars.length; index++) {
+                    let star = $(stars[index]);
+                    if (index <= clickedStar) {
+                        star.addClass("rated")
+
+                    } else {
+                        star.removeClass("rated");
+                    }
+                    //is this the index of the star that was clicked?
+                    if (index === clickedStar) {
+                        num = index + 1;
+                    }
+                }
+
+                $(".stars").attr("data-rating", num);
+
+                return num;
+            };
+
             let myFruitRecipeTitle = $("<h5>").html(fruitRecipes[index].title).attr("recipe", fruitRecipes[index].source_url)
-            fruitCardDiv.append(myFruitRecipe).append(myFruitRecipeTitle)
+            fruitCardDiv.append(myFruitRecipe).append(myFruitRecipeTitle).append(ratings)
             $("#recipesContainer").prepend(fruitCardDiv)
+
+            function setRating(event) {
+                let clickedStar = parseInt($(event.target).attr("value"));
+                let stars = $(".star")
+                let num = 0;
+                console.log(stars)
+
+                for (let index = 0; index < stars.length; index++) {
+                    let star = $(stars[index]);
+                    if (index <= clickedStar) {
+                        star.addClass("rated")
+
+                    } else {
+                        star.removeClass("rated");
+                    }
+                    //is this the index of the star that was clicked?
+                    if (index === clickedStar) {
+                        num = index + 1;
+                    }
+                }
+
+                $(".stars").attr("data-rating", num);
+
+                return num;
+            };
         }
     })
 })
@@ -121,9 +307,6 @@ $("#recipesContainer").on("click", function (event) {
         $("#recipeSite").html(response)
         modal.css("display", "block");
     })
-
-
-
 })
 
 
@@ -137,7 +320,6 @@ $("#recipesContainer").on("click", function (event) {
         $("#recipeSite").html(response)
         modal.css("display", "block")
     })
-
 })
 $(".close").on("click", function () {
     let modal = $("#myModal");
