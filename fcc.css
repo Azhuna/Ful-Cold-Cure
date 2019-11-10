@@ -54,7 +54,7 @@ body {
 #fruitCardsContainer {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .fruitCards {
@@ -74,6 +74,7 @@ body {
 
 .cardText {
     text-align: center;
+    font-size: 16px;
 }
 
 #vegContainer {
@@ -85,7 +86,7 @@ body {
 #vegcardsContainer {
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .vegCards {
@@ -131,6 +132,7 @@ h5 {
 #recipesContainer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 
@@ -217,4 +219,33 @@ h5 {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.star {
+    color: goldenrod;
+    font-size: 1 rem;
+    padding: 0.1 rem;
+}
+
+.star:before {
+    content: '\2606';
+    cursor: pointer;
+}
+
+.star.rated::before {
+    content: '\2605';
+}
+
+.stars {
+    counter-reset: rateme 0;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.star.rated {
+    counter-increment: rateme 1;
+}
+
+.stars::after {
+    content: counter(rateme) '/5';
 }
