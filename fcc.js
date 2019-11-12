@@ -260,12 +260,14 @@ $(".fruitCards").on("click", function (event) {
 $("#recipesContainer").on("click", function (event) {
     let vegRecipe = $(event.target)
     let vegWebsite = vegRecipe.attr("vegName")
+    window.open(
+        vegWebsite);
 
-    $.get(vegWebsite, function (response) {
-        let modal = $("#myModal");
-        $("#recipeSite").html(response)
-        modal.css("display", "block");
-    })
+    // $.get(vegWebsite, function (response) {
+    //     let modal = $("#myModal");
+    //     $("#recipeSite").html(response)
+    //     modal.css("display", "block");
+    // })
 })
 
 
