@@ -270,16 +270,16 @@ $("#recipesContainer").on("click", function (event) {
 
 
 
-$("#recipesContainer").on("click", function (event) {
-    let fruitRecipe = $(event.target)
-    let fruitWebsite = fruitRecipe.attr("recipe")
+// $("#recipesContainer").on("click", function (event) {
+//     let fruitRecipe = $(event.target)
+//     let fruitWebsite = fruitRecipe.attr("recipe")
 
-    $.get(fruitWebsite, function (response) {
-        let modal = $("#myModal");
-        $("#recipeSite").html(response)
-        modal.css("display", "block")
-    })
-})
+//     $.get(fruitWebsite, function (response) {
+//         let modal = $("#myModal");
+//         $("#recipeSite").html(response)
+//         modal.css("display", "block")
+//     })
+// })
 $(".close").on("click", function () {
     let modal = $("#myModal");
     modal.css("display", "none");
